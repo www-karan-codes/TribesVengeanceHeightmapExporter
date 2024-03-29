@@ -17,7 +17,7 @@ offset = 0
 
 height_map_dimensions = unpack("ii", height_map_data[:heightmap_dimensions_offset])
 
-for i in range(0, int(file_size/12)):
+for i in range(0, int((file_size - heightmap_dimensions_offset)/12)):
     position = unpack("fff", height_map_data[heightmap_dimensions_offset + offset : heightmap_dimensions_offset + offset + 12])
     offset += 12
     if (position[0] == 0 and position[1] == 0 and position[2] == 0):
